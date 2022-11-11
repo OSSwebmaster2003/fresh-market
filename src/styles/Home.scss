@@ -1,0 +1,157 @@
+.home {
+  padding: 30px calc((100% - 1280px) / 2);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  .main_part {
+    width: calc(100% - 220px);
+    .filters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      > div {
+        width: 180px;
+        height: 50px;
+        .dropdown {
+          width: 100%;
+          height: 100%;
+          .dropdown-toggle {
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(51, 51, 51, 0.1);
+            border-radius: 5px;
+            background: inherit;
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.2s ease all;
+            &::after {
+              border-top: 0.6em solid;
+              border-right: 0.6em solid transparent;
+              border-bottom: 0;
+              border-left: 0.6em solid transparent;
+            }
+            &:hover {
+              border: 1.5px solid #a1d214;
+            }
+          }
+          .dropdown-menu {
+            height: auto;
+            width: 100%;
+            border: 1px solid rgba(51, 51, 51, 0.1);
+            border-radius: 5px;
+            background: inherit;
+            background: #ffffff;
+            margin-top: 3px;
+            transition: 0.2s ease all;
+            &:hover {
+              border: 1.5px solid #a1d214;
+            }
+            button {
+              font-family: "Montserrat", sans-serif;
+              font-style: normal;
+              font-weight: 700;
+              font-size: 14px;
+              color: #333333;
+              transition: 0.2s linear all;
+              background: #ffffff;
+              &:hover {
+                background: #a1d214;
+              }
+            }
+          }
+        }
+      }
+      .product_dropdown {
+        width: 180px;
+      }
+      .time_dropdown {
+        width: 257px;
+      }
+      .filter_area {
+        width: 257px;
+      }
+      .category {
+        width: calc(100% - 730px);
+      }
+    }
+    .banner {
+      width: 100%;
+      margin-top: 50px;
+      height: 650px;
+      border-radius: 50px;
+      .banner_wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 15px;
+        .for_image {
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          img {
+            width: 100%;
+            height: 600px;
+            border-radius: 30px;
+          }
+        }
+        .for_info {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 50px;
+          h1 {
+            margin-bottom: 0;
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 29px;
+            color: #333333;
+          }
+          span {
+            background: #a1d214;
+            border-radius: 5px;
+            width: 174px;
+            height: 33px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            color: #333333;
+            cursor: pointer;
+            border: 1px solid #a1d214;
+            transition: 0.2s linear all;
+            &:hover {
+              background-color: #ffffff;
+              color: #a1d214;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cart_part {
+    width: 200px;
+    height: auto;
+    background: #f1f1f1;
+    border-radius: 10px;
+    padding: 6px 5px;
+  }
+}

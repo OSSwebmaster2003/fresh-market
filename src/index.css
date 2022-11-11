@@ -1,4 +1,6 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+/* @import "../node_modules/react-slick/dist/react-slick.js"; */
+
 *{
   margin: 0;
   padding: 0;
