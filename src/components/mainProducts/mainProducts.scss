@@ -18,7 +18,8 @@
       padding-bottom: 5px;
       border-bottom: 3px solid #a1d214;
     }
-    p {
+    a {
+      text-decoration: none;
       font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -26,10 +27,19 @@
       line-height: 17px;
       color: #333333;
       cursor: pointer;
-      transition: 0.2s linear all;
-      &:hover {
-        color: #a1d214;
-        font-weight: bold;
+      p {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #333333;
+        cursor: pointer;
+        transition: 0.2s linear all;
+        &:hover {
+          color: #a1d214;
+          font-weight: bold;
+        }
       }
     }
   }

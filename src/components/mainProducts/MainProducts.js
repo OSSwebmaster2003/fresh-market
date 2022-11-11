@@ -4,22 +4,15 @@ import { FILTER_CATEGORY } from "../../config";
 import { filterCategories } from "../../redux/action";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MainProductItem from "./MainProductItem";
+import { Link } from "react-router-dom";
 import { Navigation } from "swiper";
 import "swiper/css";
-// import "../../../node_modules/swiper/modules/navigation";
 import "swiper/css/navigation";
 import "./mainProducts.scss";
 
 function MainProducts(props) {
   const { categorizedItems, filterByCategory } = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  const params = {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  };
 
   useEffect(() => {
     fetch(FILTER_CATEGORY + categorizedItems[0].strCategory)
@@ -35,7 +28,9 @@ function MainProducts(props) {
           categorizedItems.map((item) => (
             <h1 key={item.idCategory}>{item.strCategory}</h1>
           ))}
-        <p>Показать все</p>
+        <Link to="/mainProducts/fullList">
+          <p>Показать все</p>
+        </Link>
       </div>
       <div className="main_products_section">
         <div className="wrapper_main_products_section">
