@@ -1,11 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { RANDOM_MEAL } from "../../config";
-import { fetchBanner } from "../../redux/action";
+import { categorizeItems, fetchBanner } from "../../redux/action";
 
 function Banner(props) {
   const dispatch = useDispatch();
   const { banner } = useSelector((state) => state);
+  const handleBannerCat = (idCategory, strCategory) => {
+    const newCat = {
+      idCategory,
+      strCategory,
+    };
+    dispatch(categorizeItems(newCat));
+  };
   useEffect(() => {
     fetch(RANDOM_MEAL)
       .then((res) => res.json())
@@ -24,7 +32,15 @@ function Banner(props) {
             </div>
             <div className="for_info">
               <h1>{banner.strMeal}</h1>
-              <span>{banner.strCategory}</span>
+              <Link to="/mainProducts/fullList">
+                <span
+                  onClick={() =>
+                    handleBannerCat(banner.idCategory, banner.strCategory)
+                  }
+                >
+                  {banner.strCategory}
+                </span>
+              </Link>
             </div>
           </div>
         ))}

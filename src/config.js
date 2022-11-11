@@ -5,5 +5,6 @@ export const FILTER_CATEGORY =
 export const SEARCH_NAME = "www.themealdb.com/api/json/v1/1/search.php?s="; //name
 export const SEARCH_FIRST_LETTER =
   "www.themealdb.com/api/json/v1/1/search.php?f="; // only one letter
-export const LOOK_DETAILS = "www.themealdb.com/api/json/v1/1/lookup.php?i="; // id
+export const LOOK_DETAILS =
+  "https://www.themealdb.com/api/json/v1/1/lookup.php?i="; // id
 export const RANDOM_MEAL = "https://www.themealdb.com/api/json/v1/1/random.php";

@@ -85,9 +85,11 @@
           .for_image {
             width: 100%;
             height: 250px;
+            position: relative;
+
             img {
               width: 100%;
-              height: 100%;
+              height: 250px;
               border-radius: 10px;
               border: 1px solid rgba(51, 51, 51, 0.05);
               cursor: pointer;
@@ -131,6 +133,13 @@
             font-size: 12px;
             line-height: 15px;
             color: #333333;
+            cursor: pointer;
+            transition: 0.2s linear all;
+            &:hover {
+              background-color: #ffffff;
+              border: 1px solid #a1d214;
+              color: #a1d214;
+            }
           }
         }
       }

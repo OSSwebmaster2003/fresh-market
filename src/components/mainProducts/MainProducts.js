@@ -43,7 +43,7 @@ function MainProducts(props) {
           >
             {filterByCategory.slice(0, 6).map(({ idMeal, ...props }) => (
               <SwiperSlide>
-                {<MainProductItem key={idMeal} {...props} />}
+                {<MainProductItem key={idMeal} {...props} idMeal={idMeal} />}
               </SwiperSlide>
             ))}
           </Swiper>

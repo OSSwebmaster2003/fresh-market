@@ -121,26 +121,29 @@
             line-height: 29px;
             color: #333333;
           }
-          span {
-            background: #a1d214;
-            border-radius: 5px;
-            width: 174px;
-            height: 33px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Montserrat", sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 15px;
-            color: #333333;
-            cursor: pointer;
-            border: 1px solid #a1d214;
-            transition: 0.2s linear all;
-            &:hover {
-              background-color: #ffffff;
-              color: #a1d214;
+          a {
+            text-decoration: none;
+            span {
+              background: #a1d214;
+              border-radius: 5px;
+              width: 174px;
+              height: 33px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: "Montserrat", sans-serif;
+              font-style: normal;
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 15px;
+              color: #333333;
+              cursor: pointer;
+              border: 1px solid #a1d214;
+              transition: 0.2s linear all;
+              &:hover {
+                background-color: #ffffff;
+                color: #a1d214;
+              }
             }
           }
         }
