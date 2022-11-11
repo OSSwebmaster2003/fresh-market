@@ -48,7 +48,10 @@
       }
       .for_info {
         width: 100%;
-        p {
+        a {
+          top: 0;
+          position: relative;
+          text-decoration: none;
           font-family: "Montserrat", sans-serif;
           font-style: normal;
           font-weight: 700;

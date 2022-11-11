@@ -67,11 +67,6 @@
             background-color: #a1d214;
           }
           &::after {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px;
-            height: 20px;
             font-size: 20px;
             font-weight: bold;
           }
@@ -102,7 +97,8 @@
           .for_info {
             width: 100%;
             margin-top: 15px;
-            p {
+            a {
+              text-decoration: none;
               margin-bottom: 0;
               font-family: "Montserrat", sans-serif;
               font-style: normal;

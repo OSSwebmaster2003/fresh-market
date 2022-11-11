@@ -22,7 +22,7 @@ function FullMainProducts(props) {
     <div className="full_main_products">
       <div className="main_part">
         {filterByCategory.map(({ idMeal, ...props }) => (
-          <div className="card">
+          <div className="card" key={idMeal}>
             <MainProductItem key={idMeal} {...props} idMeal={idMeal} />
           </div>
         ))}

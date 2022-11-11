@@ -9,6 +9,8 @@ const initialState = {
   ],
   filterByCategory: [],
   singleProduct: [],
+  cart: [],
+  // quantity: 0,
 };
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,6 +39,22 @@ export const reducer = (state = initialState, action) => {
         ...state,
         singleProduct: action.payload,
       };
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        quantity: 1,
+        cart: [...state.cart, action.payload],
+      };
+    // case "INCREASE_QUANTITY":
+    //   return {
+    //     ...state,
+    //     quantity: state.quantity + 1,
+    //   };
+    // case "DECREASE_QUANTITY":
+    //   return {
+    //     ...state,
+    //     quantity: state.quantity - 1,
+    //   };
     default:
       return state;
   }

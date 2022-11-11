@@ -18,3 +18,13 @@ export const lookUpDetails = (product) => ({
   type: "LOOK_UP_DETAILS",
   payload: product,
 });
+export const addToCart = (product) => ({
+  type: "ADD_TO_CART",
+  payload: product,
+});
+export const increaseQuantity = () => ({
+  type: "INCREASE_QUANTITY",
+});
+export const decreaseQuantity = () => ({
+  type: "DECREASE_QUANTITY",
+});

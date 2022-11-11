@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { LOOK_DETAILS } from "../../config";
 import { lookUpDetails } from "../../redux/action";
 import "./ProductDetails.scss";
@@ -34,6 +35,7 @@ function ProductDetails(props) {
                 </div>
                 <div className="watch_on_youtube">
                   <a href={item.strYoutube}>Watch on You Tube</a>
+                  <Link to="/">Home</Link>
                 </div>
               </div>
             </div>
