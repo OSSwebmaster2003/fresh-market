@@ -11,6 +11,7 @@ const initialState = {
   singleProduct: [],
   cart: [],
   // quantity: 0,
+  // sum: 0,
 };
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -42,19 +43,20 @@ export const reducer = (state = initialState, action) => {
     case "ADD_TO_CART":
       return {
         ...state,
-        quantity: 1,
+        // quantity: 1,
         cart: [...state.cart, action.payload],
       };
-    // case "INCREASE_QUANTITY":
-    //   return {
-    //     ...state,
-    //     quantity: state.quantity + 1,
-    //   };
-    // case "DECREASE_QUANTITY":
-    //   return {
-    //     ...state,
-    //     quantity: state.quantity - 1,
-    //   };
+    case "DELETE_CART_ITEM":
+      return {
+        ...state,
+        quantity: 0,
+        cart: action.payload,
+      };
+    case "INCREMENT":
+      return {
+        ...state,
+        quantity: state.quantity++,
+      };
     default:
       return state;
   }

@@ -22,9 +22,8 @@ export const addToCart = (product) => ({
   type: "ADD_TO_CART",
   payload: product,
 });
-export const increaseQuantity = () => ({
-  type: "INCREASE_QUANTITY",
+export const deleteCartItem = (product) => ({
+  type: "DELETE_CART_ITEM",
+  payload: product,
 });
-export const decreaseQuantity = () => ({
-  type: "DECREASE_QUANTITY",
-});
+export const increment = () => ({ type: "INCREMENT" });

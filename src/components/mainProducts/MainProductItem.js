@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/action";
 
-function MainProductItem({ strMeal, strMealThumb, idMeal }) {
+function MainProductItem({ strMeal, strMealThumb, idMeal, quantity }) {
   const dispatch = useDispatch();
-  const { cart, quantity } = useSelector((state) => state);
+  const { cart } = useSelector((state) => state);
 
   const handleAddCart = (product) => {
     const itemIndex = cart.findIndex((item) => item.idMeal === idMeal);
     if (itemIndex < 0) {
       const newItem = {
         ...product,
+        price: 120,
         quantity: 1,
       };
       dispatch(addToCart(newItem));
@@ -20,6 +21,7 @@ function MainProductItem({ strMeal, strMealThumb, idMeal }) {
         if (index === itemIndex) {
           return {
             ...item,
+            price: 120,
             quantity: item.quantity + 1,
           };
         } else {
@@ -42,7 +44,9 @@ function MainProductItem({ strMeal, strMealThumb, idMeal }) {
       </div>
       <div
         className="ingredients"
-        onClick={() => handleAddCart({ idMeal, strMeal, strMealThumb })}
+        onClick={() =>
+          handleAddCart({ idMeal, strMeal, strMealThumb, quantity })
+        }
       >
         Купить ингредиенты
       </div>

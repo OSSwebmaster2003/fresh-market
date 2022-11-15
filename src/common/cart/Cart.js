@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./cart.scss";
 import CartItem from "./CartItem";
 
 function Cart(props) {
   const { cart } = useSelector((state) => state);
+
+  const handleTotalPrice = () => {
+    let total = 0;
+    console.log(cart[2]);
+    for (let i = 0; i < cart.length; i++) {
+      total = total + cart[i].price * cart[i].quantity;
+    }
+    return total;
+  };
+
   return (
     <div className="cart_section">
       <div className="cart_top">
         {cart &&
           cart.map(({ idMeal, ...props }) => (
-            <CartItem key={idMeal} {...props} />
+            <CartItem key={idMeal} {...props} idMeal={idMeal} />
           ))}
       </div>
       <div className="cart_bottom">
         <div className="total_price">
           <h1>Итого,руб:</h1>
-          <span>120,85</span>
+          <span>{handleTotalPrice()}</span>
         </div>
         <div className="order_products">
           <svg

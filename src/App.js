@@ -5,6 +5,7 @@ import "./App.css";
 import Footer from "./common/footer/Footer";
 import FullMainProducts from "./components/mainProducts/FullMainProducts";
 import ProductDetails from "./components/productDetails/ProductDetails";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               path="/mainProducts/fullList/:id"
               element={<ProductDetails />}
             />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
           <Footer />
         </Router>

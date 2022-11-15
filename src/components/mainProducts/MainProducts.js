@@ -35,8 +35,22 @@ function MainProducts(props) {
       <div className="main_products_section">
         <div className="wrapper_main_products_section">
           <Swiper
+            breakpoints={{
+              1200: {
+                width: 1200,
+                slidesPerView: 3,
+              },
+              1100: {
+                width: 700,
+                slidesPerView: 2,
+              },
+              0: {
+                width: 0,
+                slidesPerView: 1,
+              },
+            }}
             spaceBetween={20}
-            slidesPerView={3}
+            // slidesPerView={3}
             // {...params}
             modules={[Navigation]}
             navigation

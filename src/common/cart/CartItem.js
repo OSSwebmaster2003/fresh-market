@@ -1,43 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { decreaseQuantity, increaseQuantity } from "../../redux/action";
+import { addToCart, deleteCartItem, increment } from "../../redux/action";
 
-function CartItem({ strMeal, strMealThumb, quantity }) {
+function CartItem({ strMeal, strMealThumb, quantity, idMeal, price }) {
+  const { id } = idMeal;
   const { cart } = useSelector((state) => state);
-  // let quantity = 1;
-  // const dispatch = useDispatch();
-  // const handleQuantityInc = () => {
-  //   // dispatch(increaseQuantity());
-  //   quantity = quantity + 1;
-  // };
-  // const handleQuantityDec = () => {
-  //   // dispatch(decreaseQuantity());
-  //   quantity--;
-  // };
-  console.log(cart);
+  const dispatch = useDispatch();
+
+  const increaseInventory = () => {
+    dispatch(increment());
+  };
+  function deleteProduct(item) {
+    dispatch(deleteCartItem(cart.filter((item) => item.idMeal !== idMeal)));
+  }
+
   return (
     <div className="cart_top_item">
       <div className="card">
-        <div className="for_image">
+        <Link to={`/mainProducts/fullList/${idMeal}`} className="for_image">
           <img src={strMealThumb} alt="" />
-        </div>
+        </Link>
         <div className="for_count">
-          <div className="increment" onClick={() => quantity++}>
+          <div
+            className="increment"
+            onClick={() => increaseInventory({ idMeal, quantity })}
+            // onClick={() => increaseQuantity()}
+          >
             +
           </div>
           <div className="amount">{quantity}</div>
-          <div className="decrement" onClick={() => quantity--}>
+          <div
+            className="decrement"
+            // onClick={() => decreaseQuantity()}
+          >
             -
           </div>
         </div>
         <div className="for_info">
-          <h1>{strMeal}</h1>
+          <Link to={`/mainProducts/fullList/${idMeal}`}>
+            <h1>{strMeal}</h1>
+          </Link>
           <div className="details">
-            <span>120 руб.</span>
+            <span>{price * quantity} руб.</span>
             <h1>450г.</h1>
           </div>
         </div>
-        <div className="delete_item">
+        <div className="delete_item" onClick={() => deleteProduct(cart)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

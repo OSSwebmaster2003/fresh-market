@@ -95,7 +95,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      top: 101%;
+      top: calc(100% + 20px);
       button {
         width: 150px;
         height: 100%;
@@ -105,6 +105,35 @@
         font-weight: bold;
         font-family: "Roboto", sans-serif;
       }
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .full_main_products {
+    padding: 30px 39px;
+  }
+}
+@media (max-width: 1150px) {
+  .full_main_products {
+    .cart_part {
+      width: 300px;
+    }
+    .main_part {
+      width: calc(100% - 320px);
+      a {
+        top: calc(100% + 20px);
+      }
+    }
+  }
+}
+@media (max-width: 650px) {
+  .full_main_products {
+    padding: 20px 15px;
+    .main_part {
+      width: 100%;
+    }
+    .cart_part {
+      display: none;
     }
   }
 }
