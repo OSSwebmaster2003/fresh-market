@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./cart.scss";
 import CartItem from "./CartItem";
 
 function Cart(props) {
   const { cart } = useSelector((state) => state);
 
+  const increaseAmount = () => {};
+
   const handleTotalPrice = () => {
     let total = 0;
-    console.log(cart[2]);
+
     for (let i = 0; i < cart.length; i++) {
       total = total + cart[i].price * cart[i].quantity;
     }
@@ -19,9 +22,17 @@ function Cart(props) {
     <div className="cart_section">
       <div className="cart_top">
         {cart &&
-          cart.map(({ idMeal, ...props }) => (
-            <CartItem key={idMeal} {...props} idMeal={idMeal} />
-          ))}
+          cart.map(({ idMeal, ...props }) => {
+            console.log(props);
+            return (
+              <CartItem
+                key={idMeal}
+                {...props}
+                idMeal={idMeal}
+                // increaseAmount={increaseAmount}
+              />
+            );
+          })}
       </div>
       <div className="cart_bottom">
         <div className="total_price">
@@ -42,6 +53,9 @@ function Cart(props) {
           <div className="product_amount">{cart.length}</div>
           <span>Подтвердить заказ</span>
         </div>
+        <Link to="/" className="back_to_home">
+          <span>Home</span>
+        </Link>
       </div>
     </div>
   );

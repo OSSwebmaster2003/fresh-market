@@ -17,6 +17,7 @@
     "reactstrap": "^9.1.5",
     "redux": "^4.2.0",
     "sass": "^1.56.0",
+    "slick-carousel": "^1.8.1",
     "swiper": "^8.4.4",
     "web-vitals": "^2.1.4"
   },

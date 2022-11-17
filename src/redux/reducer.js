@@ -10,8 +10,7 @@ const initialState = {
   filterByCategory: [],
   singleProduct: [],
   cart: [],
-  // quantity: 0,
-  // sum: 0,
+  favourites: [],
 };
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -43,8 +42,12 @@ export const reducer = (state = initialState, action) => {
     case "ADD_TO_CART":
       return {
         ...state,
-        // quantity: 1,
-        cart: [...state.cart, action.payload],
+        cart: action.payload,
+      };
+    case "ADD_TO_FAVOURITES":
+      return {
+        ...state,
+        cart: [...state.favourites, action.payload],
       };
     case "DELETE_CART_ITEM":
       return {
@@ -55,7 +58,7 @@ export const reducer = (state = initialState, action) => {
     case "INCREMENT":
       return {
         ...state,
-        quantity: state.quantity++,
+        quantity: state.quantity + 1,
       };
     default:
       return state;

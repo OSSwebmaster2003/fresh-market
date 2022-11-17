@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteCartItem, increment } from "../../redux/action";
 
 function CartItem({ strMeal, strMealThumb, quantity, idMeal, price }) {
-  const { id } = idMeal;
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const increaseInventory = () => {
-    dispatch(increment());
+  // console.log(quantity + "quantity");
+  // const increaseAmount = () => {
+  //   // quantity = quantity + 1;
+  //   dispatch(increment());
+  //   console.log(quantity + "quantity2");
+  // };
+
+  const addItemToCart = (product) => {
+    const itemIndex = cart.findIndex((item) => item.idMeal === product.idMeal);
+
+    const newCart = cart.map((item, index) => {
+      if (index === itemIndex) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      } else {
+        return item;
+      }
+    });
+
+    dispatch(addToCart(newCart));
   };
+
   function deleteProduct(item) {
     dispatch(deleteCartItem(cart.filter((item) => item.idMeal !== idMeal)));
   }
-
   return (
     <div className="cart_top_item">
       <div className="card">
@@ -24,18 +43,13 @@ function CartItem({ strMeal, strMealThumb, quantity, idMeal, price }) {
         <div className="for_count">
           <div
             className="increment"
-            onClick={() => increaseInventory({ idMeal, quantity })}
-            // onClick={() => increaseQuantity()}
+            onClick={() => addItemToCart({ idMeal })}
+            // onClick={() => increaseAmount({ idMeal, quantity })}
           >
             +
           </div>
           <div className="amount">{quantity}</div>
-          <div
-            className="decrement"
-            // onClick={() => decreaseQuantity()}
-          >
-            -
-          </div>
+          <div className="decrement">-</div>
         </div>
         <div className="for_info">
           <Link to={`/mainProducts/fullList/${idMeal}`}>

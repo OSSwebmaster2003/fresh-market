@@ -18,12 +18,16 @@ export const lookUpDetails = (product) => ({
   type: "LOOK_UP_DETAILS",
   payload: product,
 });
-export const addToCart = (product) => ({
+export const addToCart = (cart) => ({
   type: "ADD_TO_CART",
-  payload: product,
+  payload: cart,
 });
 export const deleteCartItem = (product) => ({
   type: "DELETE_CART_ITEM",
   payload: product,
 });
 export const increment = () => ({ type: "INCREMENT" });
+export const addToFavourites = (product) => ({
+  type: "ADD_TO_FAVOURITES",
+  payload: product,
+});

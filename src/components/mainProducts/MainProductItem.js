@@ -3,33 +3,39 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/action";
 
-function MainProductItem({ strMeal, strMealThumb, idMeal, quantity }) {
+function MainProductItem({ strMeal, strMealThumb, idMeal }) {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state);
+  const { cart, quantity } = useSelector((state) => state);
 
   const handleAddCart = (product) => {
-    const itemIndex = cart.findIndex((item) => item.idMeal === idMeal);
-    if (itemIndex < 0) {
-      const newItem = {
-        ...product,
-        price: 120,
-        quantity: 1,
-      };
-      dispatch(addToCart(newItem));
-    } else {
-      const newItem = cart.map((item, index) => {
-        if (index === itemIndex) {
-          return {
-            ...item,
-            price: 120,
-            quantity: item.quantity + 1,
-          };
-        } else {
-          return item;
-        }
-      });
-      return newItem;
-    }
+    const itemIndex = cart.findIndex((item) => item.idMeal === product.idMeal);
+
+    const addItem = () => {
+      if (itemIndex < 0) {
+        const newItem = {
+          ...product,
+          price: 120,
+          quantity: 1,
+        };
+        return [...cart, newItem];
+      } else {
+        const newCart = cart.map((item, index) => {
+          if (index === itemIndex) {
+            return {
+              ...item,
+              price: 120,
+              quantity: item.quantity + 1,
+            };
+          } else {
+            return item;
+          }
+        });
+        return newCart;
+      }
+    };
+
+    dispatch(addToCart(addItem()));
+
     console.log(cart);
   };
   return (
@@ -44,9 +50,7 @@ function MainProductItem({ strMeal, strMealThumb, idMeal, quantity }) {
       </div>
       <div
         className="ingredients"
-        onClick={() =>
-          handleAddCart({ idMeal, strMeal, strMealThumb, quantity })
-        }
+        onClick={() => handleAddCart({ idMeal, strMeal, strMealThumb })}
       >
         Купить ингредиенты
       </div>
@@ -55,3 +59,9 @@ function MainProductItem({ strMeal, strMealThumb, idMeal, quantity }) {
 }
 
 export default MainProductItem;
+
+const bs = [1, 2, 3];
+const d = bs.map((item) => {
+  return item + 1;
+});
+console.log(d);

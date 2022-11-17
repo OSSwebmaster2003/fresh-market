@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FILTER_CATEGORY } from "../../config";
 import { filterCategories } from "../../redux/action";
-import { Swiper, SwiperSlide } from "swiper/react";
 import MainProductItem from "./MainProductItem";
 import { Link } from "react-router-dom";
-import { Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./mainProducts.scss";
 
 function MainProducts(props) {
@@ -21,6 +20,38 @@ function MainProducts(props) {
       .catch((err) => console.log(err));
     //eslint-disable-next-line
   }, [categorizedItems[0].strCategory]);
+
+  // react-slick settings
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 0,
+          infinite: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 0,
+          infinite: false,
+          dots: false,
+        },
+      },
+    ],
+  };
   return (
     <div className="main_products">
       <div className="heading">
@@ -34,33 +65,11 @@ function MainProducts(props) {
       </div>
       <div className="main_products_section">
         <div className="wrapper_main_products_section">
-          <Swiper
-            breakpoints={{
-              1200: {
-                width: 1200,
-                slidesPerView: 3,
-              },
-              1100: {
-                width: 700,
-                slidesPerView: 2,
-              },
-              0: {
-                width: 0,
-                slidesPerView: 1,
-              },
-            }}
-            spaceBetween={20}
-            // slidesPerView={3}
-            // {...params}
-            modules={[Navigation]}
-            navigation
-          >
+          <Slider {...settings}>
             {filterByCategory.slice(0, 6).map(({ idMeal, ...props }) => (
-              <SwiperSlide>
-                {<MainProductItem key={idMeal} {...props} idMeal={idMeal} />}
-              </SwiperSlide>
+              <MainProductItem key={idMeal} {...props} idMeal={idMeal} />
             ))}
-          </Swiper>
+          </Slider>
         </div>
       </div>
     </div>

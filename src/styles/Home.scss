@@ -156,6 +156,13 @@
     background: #f1f1f1;
     border-radius: 10px;
     padding: 6px 5px;
+    .cart_section {
+      .cart_bottom {
+        .back_to_home {
+          display: none;
+        }
+      }
+    }
   }
 }
 
