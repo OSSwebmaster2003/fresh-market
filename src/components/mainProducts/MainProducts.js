@@ -67,7 +67,12 @@ function MainProducts(props) {
         <div className="wrapper_main_products_section">
           <Slider {...settings}>
             {filterByCategory.slice(0, 6).map(({ idMeal, ...props }) => (
-              <MainProductItem key={idMeal} {...props} idMeal={idMeal} />
+              <MainProductItem
+                key={idMeal}
+                {...props}
+                idMeal={idMeal}
+                // liked={false}
+              />
             ))}
           </Slider>
         </div>

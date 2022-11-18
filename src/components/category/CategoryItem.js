@@ -1,11 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { DropdownItem } from "reactstrap";
 import { categorizeItems } from "../../redux/action";
 
 function CategoryItem({ strCategory, idCategory }) {
   const dispatch = useDispatch();
-  const { categorizedItems } = useSelector((state) => state);
+  // const { categorizedItems } = useSelector((state) => state);
   const handleCategorizedItems = (strCategory, idCategory) => {
     const newCategory = {
       idCategory,

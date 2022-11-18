@@ -3,18 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { LOOK_DETAILS } from "../../config";
-import { lookUpDetails } from "../../redux/action";
+import {
+  categorizeItems,
+  filterByArea,
+  lookUpDetails,
+} from "../../redux/action";
 import "./ProductDetails.scss";
 
 function ProductDetails(props) {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { singleProduct } = useSelector((state) => state);
+  const { singleProduct, area } = useSelector((state) => state);
+
+  const handleCategorizedItems = (strCategory, idCategory) => {
+    const newCategory = {
+      idCategory,
+      strCategory,
+    };
+    dispatch(categorizeItems(newCategory));
+  };
+
   useEffect(() => {
     fetch(LOOK_DETAILS + id)
       .then((res) => res.json())
       .then((data) => dispatch(lookUpDetails(data.meals)));
+
+    //eslint-disable-next-line
   }, [id]);
+
   return (
     <div className="product_details">
       <div className="details_wrapper">
@@ -27,8 +43,20 @@ function ProductDetails(props) {
               <div className="for_info">
                 <div className="main_info">
                   <h1>{item.strMeal}</h1>
-                  <span>{item.strCategory}</span>
-                  <span className="area">{item.strArea}</span>
+                  <Link
+                    to="/mainProducts/fullList"
+                    onClick={() =>
+                      handleCategorizedItems(item.strCategory, item.idCategory)
+                    }
+                  >
+                    {item.strCategory}
+                  </Link>
+                  <Link
+                    to={`/mainProducts/area/${item.strArea}`}
+                    className="area"
+                  >
+                    {item.strArea}
+                  </Link>
                 </div>
                 <div className="instructions">
                   <p>{item.strInstructions}</p>

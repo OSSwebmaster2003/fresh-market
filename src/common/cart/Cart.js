@@ -7,8 +7,6 @@ import CartItem from "./CartItem";
 function Cart(props) {
   const { cart } = useSelector((state) => state);
 
-  const increaseAmount = () => {};
-
   const handleTotalPrice = () => {
     let total = 0;
 
@@ -23,15 +21,7 @@ function Cart(props) {
       <div className="cart_top">
         {cart &&
           cart.map(({ idMeal, ...props }) => {
-            console.log(props);
-            return (
-              <CartItem
-                key={idMeal}
-                {...props}
-                idMeal={idMeal}
-                // increaseAmount={increaseAmount}
-              />
-            );
+            return <CartItem key={idMeal} {...props} idMeal={idMeal} />;
           })}
       </div>
       <div className="cart_bottom">

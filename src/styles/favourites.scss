@@ -1,0 +1,135 @@
+.favourites_page {
+  padding: 30px calc((100% - 1280px) / 2);
+  .favourites_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    .card {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 30px;
+      flex-direction: row;
+      border: none;
+      background: #ffffff;
+      box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+      padding: 10px 20px;
+      border-radius: 20px;
+      .for_image {
+        width: 200px;
+        height: 150px;
+        img {
+          width: 100%;
+          height: 150px;
+          border-radius: 15px;
+          cursor: pointer;
+          transition: 0.2s linear all;
+          &:hover {
+            filter: brightness(0.7);
+          }
+        }
+      }
+      .for_info {
+        text-decoration: none;
+        color: #333333;
+        h1 {
+          margin-bottom: 0;
+          margin-top: 10px;
+          font-size: 16px;
+          font-family: "Montserrat", sans-serif;
+          cursor: pointer;
+          transition: 0.2s linear all;
+          &:hover {
+            color: #a1d214;
+          }
+        }
+      }
+      .delete_liked {
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          transition: 0.2s linear all;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+    .back_to_home {
+      width: 200px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      margin: auto;
+      background-color: #a1d214;
+      border-radius: 5px;
+      color: #333333;
+      font-weight: bold;
+      font-family: "Montserrat", sans-serif;
+      transition: 0.2s linear all;
+      &:hover {
+        background-color: greenyellow;
+      }
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .favourites_page {
+    padding: 30px 39px;
+  }
+}
+@media (max-width: 1250px) {
+  .favourites_page {
+    padding: 20px 15px;
+  }
+}
+@media (max-width: 600px) {
+  .favourites_page {
+    .favourites_wrapper {
+      .card {
+        .for_image {
+          width: 120px;
+          height: 80px;
+          img {
+            width: 120px;
+            height: 80px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .favourites_page {
+    .favourites_wrapper {
+      .card {
+        gap: 15px;
+        .for_image {
+          width: 80px;
+          height: 60px;
+          img {
+            width: 80px;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}

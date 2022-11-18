@@ -18,7 +18,6 @@ function Categories(props) {
       .then((data) => dispatch(fetchCategories(data.categories)));
     //eslint-disable-next-line
   }, []);
-  console.log(categories);
   return (
     <div className="category">
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>

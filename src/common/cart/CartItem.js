@@ -1,18 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, deleteCartItem, increment } from "../../redux/action";
+import { addToCart, deleteCartItem } from "../../redux/action";
 
 function CartItem({ strMeal, strMealThumb, quantity, idMeal, price }) {
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  // console.log(quantity + "quantity");
-  // const increaseAmount = () => {
-  //   // quantity = quantity + 1;
-  //   dispatch(increment());
-  //   console.log(quantity + "quantity2");
-  // };
 
   const addItemToCart = (product) => {
     const itemIndex = cart.findIndex((item) => item.idMeal === product.idMeal);
@@ -30,6 +23,26 @@ function CartItem({ strMeal, strMealThumb, quantity, idMeal, price }) {
 
     dispatch(addToCart(newCart));
   };
+  const removeFromCart = (product) => {
+    const itemIndex = cart.findIndex((item) => item.idMeal === product.idMeal);
+    // console.log(product);
+    if (product.quantity > 1) {
+      const newCart = cart.map((item, index) => {
+        if (index === itemIndex) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        } else {
+          return item;
+        }
+      });
+
+      dispatch(addToCart(newCart));
+    } else {
+      deleteProduct(cart);
+    }
+  };
 
   function deleteProduct(item) {
     dispatch(deleteCartItem(cart.filter((item) => item.idMeal !== idMeal)));
@@ -41,15 +54,16 @@ function CartItem({ strMeal, strMealThumb, quantity, idMeal, price }) {
           <img src={strMealThumb} alt="" />
         </Link>
         <div className="for_count">
-          <div
-            className="increment"
-            onClick={() => addItemToCart({ idMeal })}
-            // onClick={() => increaseAmount({ idMeal, quantity })}
-          >
+          <div className="increment" onClick={() => addItemToCart({ idMeal })}>
             +
           </div>
           <div className="amount">{quantity}</div>
-          <div className="decrement">-</div>
+          <div
+            className="decrement"
+            onClick={() => removeFromCart({ idMeal, quantity })}
+          >
+            -
+          </div>
         </div>
         <div className="for_info">
           <Link to={`/mainProducts/fullList/${idMeal}`}>

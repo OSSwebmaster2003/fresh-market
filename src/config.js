@@ -8,3 +8,5 @@ export const SEARCH_FIRST_LETTER =
 export const LOOK_DETAILS =
   "https://www.themealdb.com/api/json/v1/1/lookup.php?i="; // id
 export const RANDOM_MEAL = "https://www.themealdb.com/api/json/v1/1/random.php";
+export const FILTER_AREA =
+  "https://www.themealdb.com/api/json/v1/1/filter.php?a="; // area

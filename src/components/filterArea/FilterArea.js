@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
+import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import FilterItem from "./FilterItem";
 
 function FilterArea(props) {
@@ -33,13 +28,11 @@ function FilterArea(props) {
       area: "Mexican",
     },
   ];
-  console.log(area);
   return (
     <div className="filter_area">
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>Кухня</DropdownToggle>
         <DropdownMenu>
-          {/* <DropdownItem header>Header</DropdownItem> */}
           {area.map(({ id, ...props }) => (
             <FilterItem key={id} {...props} />
           ))}

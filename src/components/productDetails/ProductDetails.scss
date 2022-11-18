@@ -42,6 +42,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 10px;
           h1 {
             font-family: "Montserrat", sans-serif;
             font-style: normal;
@@ -51,7 +52,8 @@
             color: #333333;
             margin-bottom: 0;
           }
-          span {
+          a {
+            text-decoration: none;
             width: 150px;
             display: flex;
             align-items: center;
@@ -78,6 +80,7 @@
             border: 1px solid #a1d214;
             color: #a1d214;
             transition: 0.3s linear all;
+            padding: 0;
             &:hover {
               background-color: #a1d214;
               border: 1px solid none;
@@ -143,8 +146,8 @@
       .card {
         .for_info {
           .main_info {
-            .area {
-              display: none;
+            h1 {
+              font-size: 16px;
             }
           }
         }
@@ -212,6 +215,9 @@
             h1 {
               width: 100%;
               text-align: center;
+            }
+            a {
+              width: 100%;
             }
           }
         }

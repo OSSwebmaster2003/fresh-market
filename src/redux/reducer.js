@@ -7,6 +7,7 @@ const initialState = {
       strCategory: "Beef",
     },
   ],
+  area: [],
   filterByCategory: [],
   singleProduct: [],
   cart: [],
@@ -47,7 +48,7 @@ export const reducer = (state = initialState, action) => {
     case "ADD_TO_FAVOURITES":
       return {
         ...state,
-        cart: [...state.favourites, action.payload],
+        favourites: action.payload,
       };
     case "DELETE_CART_ITEM":
       return {
@@ -55,10 +56,15 @@ export const reducer = (state = initialState, action) => {
         quantity: 0,
         cart: action.payload,
       };
-    case "INCREMENT":
+    case "DELETE_FROM_FAVOURITES":
       return {
         ...state,
-        quantity: state.quantity + 1,
+        favourites: action.payload,
+      };
+    case "FILTER_BY_AREA":
+      return {
+        ...state,
+        area: action.payload,
       };
     default:
       return state;

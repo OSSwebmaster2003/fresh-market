@@ -26,8 +26,15 @@ export const deleteCartItem = (product) => ({
   type: "DELETE_CART_ITEM",
   payload: product,
 });
-export const increment = () => ({ type: "INCREMENT" });
 export const addToFavourites = (product) => ({
   type: "ADD_TO_FAVOURITES",
   payload: product,
+});
+export const deleteFavItem = (favItem) => ({
+  type: "DELETE_FROM_FAVOURITES",
+  payload: favItem,
+});
+export const filterByArea = (area) => ({
+  type: "FILTER_BY_AREA",
+  payload: area,
 });
