@@ -8,6 +8,7 @@ import ProductDetails from "./components/productDetails/ProductDetails";
 import CartPage from "./pages/CartPage";
 import Favourites from "./pages/Favourites";
 import Area from "./components/area/Area";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/mainProducts/area/:spArea" element={<Area />} />
+            <Route path="/cart/checkout" element={<Checkout />} />
           </Routes>
           <Footer />
         </Router>

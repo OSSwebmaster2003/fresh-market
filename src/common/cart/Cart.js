@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 import "./cart.scss";
 import CartItem from "./CartItem";
 
-function Cart(props) {
+function Cart({
+  title,
+  text,
+  price,
+  delivery,
+  deliveryPrice,
+  allPrice,
+  allCost,
+}) {
   const { cart } = useSelector((state) => state);
 
   const handleTotalPrice = () => {
@@ -19,6 +27,18 @@ function Cart(props) {
   return (
     <div className="cart_section">
       <div className="cart_top">
+        <div className="heading">
+          <h1>{title}</h1>
+          <p>
+            {text} <span>{price}</span>
+          </p>
+          <p>
+            {delivery} <span>{deliveryPrice}</span>
+          </p>
+          <p>
+            {allPrice} <span>{allCost}</span>
+          </p>
+        </div>
         {cart &&
           cart.map(({ idMeal, ...props }) => {
             return <CartItem key={idMeal} {...props} idMeal={idMeal} />;
@@ -29,7 +49,7 @@ function Cart(props) {
           <h1>Итого,руб:</h1>
           <span>{handleTotalPrice()}</span>
         </div>
-        <div className="order_products">
+        <Link className="order_products" to="/cart/checkout">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -42,7 +62,7 @@ function Cart(props) {
           </svg>
           <div className="product_amount">{cart.length}</div>
           <span>Подтвердить заказ</span>
-        </div>
+        </Link>
         <Link to="/" className="back_to_home">
           <span>Home</span>
         </Link>
