@@ -9,6 +9,7 @@ import CartPage from "./pages/CartPage";
 import Favourites from "./pages/Favourites";
 import Area from "./components/area/Area";
 import Checkout from "./pages/Checkout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/mainProducts/area/:spArea" element={<Area />} />
             <Route path="/cart/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </Router>
