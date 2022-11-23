@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToFavourites } from "../../redux/action";
+import "react-toastify/dist/ReactToastify.css";
 
 function MainProductItem({ strMeal, strMealThumb, idMeal }) {
   // const [liked, setLiked] = useState(false);

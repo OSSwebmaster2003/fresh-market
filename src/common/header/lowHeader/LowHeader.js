@@ -7,6 +7,9 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import logo from "../../../assets/logo.png";
+import search_catalog from "../../../assets/search_catalog.png";
+import search_icon from "../../../assets/simple_search.png";
 import "./lowHeader.scss";
 
 function LowHeader(props) {
@@ -35,7 +38,7 @@ function LowHeader(props) {
             </svg>
           </div>
           <div className="modal_logo">
-            <img src="./assets/logo.png" alt="" />
+            <img src={logo} alt="" />
           </div>
           <nav>
             <ul>
@@ -110,17 +113,13 @@ function LowHeader(props) {
           </svg>
         </button>
         <button>
-          <img src="./assets/search_catalog.png" alt="search" />
+          <img src={search_catalog} alt="search" />
           Каталог
         </button>
         <div className="search_products_box">
           <input type="text" placeholder="Купить молоко" />
           <span>
-            <img
-              src="./assets/simple_search.png"
-              alt=""
-              onClick={() => handleSearchModal()}
-            />
+            <img src={search_icon} alt="" onClick={() => handleSearchModal()} />
           </span>
         </div>
       </div>

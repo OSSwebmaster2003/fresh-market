@@ -6,6 +6,10 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import call_center from "../../../assets/call_center.png";
+import location_icon from "../../../assets/location.png";
+import delivery_icon from "../../../assets/delivery.png";
+import clock_icon from "../../../assets/clock.png";
 import "./topHeader.scss";
 
 function TopHeader(props) {
@@ -16,13 +20,13 @@ function TopHeader(props) {
     <div className="top_header">
       <div className="basic_information">
         <div className="call_center">
-          <img src="./assets/call_center.png" alt="call-center" />
+          <img src={call_center} alt="call-center" />
           7756
         </div>
         <div className="markets_available">
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle caret>
-              <img src="./assets/location.png" alt="location" />
+              <img src={location_icon} alt="location" />
               Магазины
             </DropdownToggle>
             <DropdownMenu>
@@ -34,11 +38,11 @@ function TopHeader(props) {
           </Dropdown>
         </div>
         <div className="delivery">
-          <img src="./assets/delivery.png" alt="" />
+          <img src={delivery_icon} alt="" />
           Зона доставки
         </div>
         <div className="work_time">
-          <img src="./assets/clock.png" alt="" />
+          <img src={clock_icon} alt="" />
           6:00 - 24:00
         </div>
       </div>
